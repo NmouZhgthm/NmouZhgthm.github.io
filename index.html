@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的世界整合包下载</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function verifyPassword() {
+            const password = prompt("请输入下载密码：");
+            const correctPassword = "20101028"; // 替换成你设定的密码
+
+            if (password === correctPassword) {
+                return true;
+            } else {
+                alert("密码错误，请重试。");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="top-links">
+        <a href="https://space.bilibili.com/1879396702" target="_blank">关注网页作者</a>
+        <a href="https://space.bilibili.com/3493094966167783" target="_blank">关注整合包作者</a>
+    </div>
+
+    <header>
+        <h1>钺峰的整合包</h1>
+        <p style="font-size: 18px;">网页作者狗头黑鸣。</p>
+    </header>
+    <main>
+        <section class="package-container">
+            <article class="package">
+                <div class="info">
+                    <span class="name">厄兆将至</span>
+                    <a href="downloads/厄兆将至.zip" download="厄兆将至.zip" class="download-button" onclick="return verifyPassword();">下载</a>
+                </div>
+                <img src="厄兆将至.jpg" alt="厄兆将至封面">
+            </article>
+            <article class="package">
+                <div class="info">
+                    <span class="name">整合包2</span>
+                    <a href="downloads/整合包2.zip" download="整合包2.zip" class="download-button" onclick="return verifyPassword();">下载</a>
+                </div>
+                <img src="cover2.jpg" alt="整合包2封面">
+            </article>
+            <article class="package">
+                <div class="info">
+                    <span class="name">整合包3</span>
+                    <a href="downloads/整合包3.zip" download="整合包3.zip" class="download-button" onclick="return verifyPassword();">下载</a>
+                </div>
+                <img src="cover3.jpg" alt="整合包3封面">
+            </article>
+            <article class="package">
+                <div class="info">
+                    <span class="name">整合包4</span>
+                    <a href="downloads/整合包4.zip" download="整合包4.zip" class="download-button" onclick="return verifyPassword();">下载</a>
+                </div>
+                <img src="cover4.jpg" alt="整合包4封面">
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>
