@@ -3,14 +3,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: #121212;
-    /* 深色背景 */
     color: #E0E0E0;
-    /* 明亮的文字 */
 }
 
 header {
     background: #1F1F1F;
-    /* 深色头部 */
     padding: 20px;
     text-align: center;
 }
@@ -27,8 +24,12 @@ nav ul li {
 
 a {
     color: #BB86FC;
-    /* 明亮的链接颜色 */
     text-decoration: none;
+}
+
+a:focus {
+    outline: 2px solid #BB86FC;
+    outline-offset: 2px;
 }
 
 main {
@@ -43,13 +44,23 @@ main {
 
 .card {
     background: #2A2A2A;
-    /* 深色卡片 */
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
     width: calc(30% - 20px);
-    /* 响应设计 */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
 }
 
 .card h3 {
@@ -59,27 +70,29 @@ main {
 .download-button {
     display: inline-block;
     background: #BB86FC;
-    /* 明亮的按钮颜色 */
     color: #121212;
-    /* 深色按钮文字 */
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .download-button:hover {
     transform: scale(1.1);
+    background: #A875F0;
+}
+
+.download-button:focus {
+    outline: 2px solid #BB86FC;
+    outline-offset: 2px;
 }
 
 .changelog {
     margin-top: 20px;
     background: #333;
-    /* 深色更新日志背景 */
     border-left: 4px solid #BB86FC;
-    /* 明亮的边框 */
     padding: 10px;
 }
 
@@ -87,20 +100,82 @@ main {
     margin: 0 0 5px;
 }
 
-.feedback-list {
-    margin-top: 20px;
-    background: #2A2A2A;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.feedback-list h4 {
-    margin: 0 0 10px;
-}
-
 footer {
     text-align: center;
     padding: 20px;
     background: #1F1F1F;
     color: #E0E0E0;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #333;
+    color: #E0E0E0;
+}
+
+input:invalid,
+textarea:invalid {
+    border-color: #FF5252;
+}
+
+input:valid,
+textarea:valid {
+    border-color: #00C853;
+}
+
+button {
+    background: #BB86FC;
+    color: #121212;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #A875F0;
+}
+
+button:focus {
+    outline: 2px solid #BB86FC;
+    outline-offset: 2px;
+}
+
+#feedback-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2A2A2A;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#feedback-form form {
+    max-width: 100%;
+}
+
+#feedback-form button {
+    margin-top: 10px;
 }
