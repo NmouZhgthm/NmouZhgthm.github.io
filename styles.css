@@ -1,13 +1,43 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #E0E0E0;
+    --header-bg: #1F1F1F;
+    --link-color: #BB86FC;
+    --card-bg: #2A2A2A;
+    --changelog-bg: #333;
+    --button-bg: #BB86FC;
+    --button-hover-bg: #A875F0;
+    --input-bg: #333;
+    --input-border: #444;
+    --input-invalid: #FF5252;
+    --input-valid: #00C853;
+}
+
+.light-mode {
+    --bg-color: #FFFFFF;
+    --text-color: #000000;
+    --header-bg: #F5F5F5;
+    --link-color: #007BFF;
+    --card-bg: #E0E0E0;
+    --changelog-bg: #D3D3D3;
+    --button-bg: #007BFF;
+    --button-hover-bg: #0056B3;
+    --input-bg: #FFFFFF;
+    --input-border: #CCCCCC;
+    --input-invalid: #FF0000;
+    --input-valid: #008000;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #E0E0E0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 header {
-    background: #1F1F1F;
+    background: var(--header-bg);
     padding: 20px;
     text-align: center;
 }
@@ -23,12 +53,12 @@ nav ul li {
 }
 
 a {
-    color: #BB86FC;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 a:focus {
-    outline: 2px solid #BB86FC;
+    outline: 2px solid var(--link-color);
     outline-offset: 2px;
 }
 
@@ -43,7 +73,7 @@ main {
 }
 
 .card {
-    background: #2A2A2A;
+    background: var(--card-bg);
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
@@ -69,8 +99,8 @@ main {
 
 .download-button {
     display: inline-block;
-    background: #BB86FC;
-    color: #121212;
+    background: var(--button-bg);
+    color: var(--bg-color);
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
@@ -81,18 +111,18 @@ main {
 
 .download-button:hover {
     transform: scale(1.1);
-    background: #A875F0;
+    background: var(--button-hover-bg);
 }
 
 .download-button:focus {
-    outline: 2px solid #BB86FC;
+    outline: 2px solid var(--button-bg);
     outline-offset: 2px;
 }
 
 .changelog {
     margin-top: 20px;
-    background: #333;
-    border-left: 4px solid #BB86FC;
+    background: var(--changelog-bg);
+    border-left: 4px solid var(--link-color);
     padding: 10px;
 }
 
@@ -103,8 +133,8 @@ main {
 footer {
     text-align: center;
     padding: 20px;
-    background: #1F1F1F;
-    color: #E0E0E0;
+    background: var(--header-bg);
+    color: var(--text-color);
 }
 
 form {
@@ -125,25 +155,25 @@ input,
 textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #444;
+    border: 1px solid var(--input-border);
     border-radius: 5px;
-    background: #333;
-    color: #E0E0E0;
+    background: var(--input-bg);
+    color: var(--text-color);
 }
 
 input:invalid,
 textarea:invalid {
-    border-color: #FF5252;
+    border-color: var(--input-invalid);
 }
 
 input:valid,
 textarea:valid {
-    border-color: #00C853;
+    border-color: var(--input-valid);
 }
 
 button {
-    background: #BB86FC;
-    color: #121212;
+    background: var(--button-bg);
+    color: var(--bg-color);
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -152,11 +182,11 @@ button {
 }
 
 button:hover {
-    background: #A875F0;
+    background: var(--button-hover-bg);
 }
 
 button:focus {
-    outline: 2px solid #BB86FC;
+    outline: 2px solid var(--button-bg);
     outline-offset: 2px;
 }
 
@@ -165,7 +195,7 @@ button:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #2A2A2A;
+    background: var(--card-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -178,4 +208,94 @@ button:focus {
 
 #feedback-form button {
     margin-top: 10px;
+}
+
+
+/* 模态框样式 */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#version-selection {
+    margin: 20px 0;
+}
+
+#version-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#version-select:focus {
+    border-color: var(--link-color);
+    background-color: var(--input-bg);
+}
+
+
+/* 下拉菜单动态效果 */
+
+#version-select option {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#version-select option:hover {
+    background-color: var(--link-color);
+    color: var(--bg-color);
 }
